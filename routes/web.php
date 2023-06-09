@@ -33,17 +33,17 @@ Route::get('/login', function () {
 
 Route::post('/login',[LoginController::class,'authenticate']);
 
-Route::get('/home', [HomeController::class,'index']);
+Route::get('/home', [HomeController::class,'index'])->name('home');
 
 Route::get('/about', function () {
     
     return view('about');
     
 });
+
 Route::get('/categories',[CategoryController::class,'getAction']);
 
 Route::get('/products',[ProductController::class,'index']);
-
 Route::get('/product/{slug}',[ProductController::class,'show']);
 
 Route::post('/cart',[CartController::class,'add']);
@@ -55,3 +55,5 @@ Route::post('/checkout',[CheckoutController::class,'store'])->name('checkout.sto
 
 
 Route::get('/payment/{paymentGateway}',[PaymentController::class,'show'])->name('payment.show');
+
+Route::get('/thankyou',[PaymentController::class,'thankyou'])->name('thankyou');
