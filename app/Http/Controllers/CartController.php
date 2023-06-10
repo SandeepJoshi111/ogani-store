@@ -17,7 +17,7 @@ class CartController extends Controller
             'id'=>$product->id,
             'title'=> $product->name,
             'quantity'=> (int) $request->quantity,
-            'price'=> $product->price/100,
+            'price'=> $product->price,
         ]);
         return back(); // goes to previous page
     }

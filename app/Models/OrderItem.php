@@ -10,4 +10,8 @@ class OrderItem extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function getPriceAttribute($value){
+        return $value/100;
+    }
+
 }
