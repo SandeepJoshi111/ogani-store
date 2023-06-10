@@ -69,8 +69,14 @@ class CategoryCrudController extends CrudController
         CRUD::field('slug');
         CRUD::field('parent_id');
         CRUD::field('description');
-        CRUD::field('image_url');
         CRUD::field('is_active');
+
+        CRUD::addField([
+            'name'=>'image_url',
+            'type'=>'upload',
+            'upload'=>true,
+            'label'=>'Category Item',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

@@ -16,11 +16,11 @@ class ProductController extends Controller
 
         if($category){
             //products Called from Category Model
-            $products = $category->products()->get();
+            $products = $category->products()->orderBy('created_at','desc')->get();
         }
         else{
 
-            $products = Product::all();
+            $products = Product::orderBy('created_at','desc')->get();
         }
     
         return view('products.list',[
